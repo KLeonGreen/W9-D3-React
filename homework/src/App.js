@@ -1,10 +1,9 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import history from "../src/books/history.json";
-import { Container, Row, Form, FormControl } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import WarningSign from "./Components/WarningSign.jsx";
 import MyBadge from "./Components/MyBadge.jsx";
-import SingleBook from "./Components/SingleBook.jsx";
 import BookList from "./Components/BookList.jsx";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
       <MyBadge color="success" text="My Added Text" />
       <Container>
         <Row>
-          <BookList />
+          <BookList book={history} />
         </Row>
       </Container>
     </div>

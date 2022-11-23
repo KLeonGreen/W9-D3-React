@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Container, Row } from "react-bootstrap";
-import history from "../books/history.json";
 import SingleBook from "../Components/SingleBook";
+import "../Components/SingleBook.css";
 
 class BookList extends Component {
   state = {
@@ -16,9 +16,9 @@ class BookList extends Component {
     return (
       <>
         <Container>
-          <input type="text" onKeyUp={this.filterBooks} />
+          <input type="text" placeholder="Search book here..." onKeyUp={this.filterBooks} />
           <Row>
-            {history
+            {this.props.book
               .filter((book) => book.title.includes(this.state.userInput))
               .map((book) => {
                 return <SingleBook books={book} />;
