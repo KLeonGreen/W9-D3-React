@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SingleBook from "../Components/SingleBook";
 import "../Components/SingleBook.css";
+import history from "../books/history.json";
 
 class BookList extends Component {
   state = {
@@ -16,9 +17,9 @@ class BookList extends Component {
     return (
       <>
         <Container>
-          <input type="text" placeholder="Search book here..." onKeyUp={this.filterBooks} />
+          <input className="search-bar" type="text" placeholder="Search book here..." onKeyUp={this.filterBooks} />
           <Row>
-            {this.props.book
+            {history
               .filter((book) => book.title.includes(this.state.userInput))
               .map((book) => {
                 return (
