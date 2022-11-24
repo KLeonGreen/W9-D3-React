@@ -15,16 +15,16 @@ class SingleBook extends Component {
       this.setState({ clicked: false });
     }
   };
+
+  randomColor = Math.floor(Math.random() * 16777215).toString(16);
   render() {
     return (
-      <Col xs={12} sm={6} md={4} lg={3} xl={2}>
-        <Card key={this.props.books.asin} onClick={this.changeStatus} style={{ border: this.state.clicked ? "1px solid red" : "" }}>
-          <Card.Img variant="top" src={this.props.books.img} />
-          <Card.Body>
-            <Card.Title>{this.props.books.title}</Card.Title>
-          </Card.Body>
-        </Card>
-      </Col>
+      <Card key={this.props.books.asin} onClick={this.changeStatus} style={{ border: this.state.clicked ? "4px solid lime" : "" }}>
+        <Card.Img variant="top" src={this.props.books.img} />
+        <Card.Body>
+          <Card.Title>{this.props.books.title}</Card.Title>
+        </Card.Body>
+      </Card>
     );
   }
 }
