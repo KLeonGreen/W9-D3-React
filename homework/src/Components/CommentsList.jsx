@@ -4,6 +4,7 @@ import { ListGroup } from "react-bootstrap";
 class CommentsList extends Component {
   render() {
     return (
+      //replace fields with the object receive as a prop from 'CommentArea.jsx'
       <div className="all-comments">
         <ListGroup>
           <ListGroup.Item>{this.props.comments.comment}</ListGroup.Item>

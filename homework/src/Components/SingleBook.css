@@ -41,7 +41,7 @@
   border: 1px solid gray;
   padding-inline-start: 30px;
   margin-block: 50px;
-  outline-color: aquamarine;
+  outline-color: limegreen;
   transition: 0.5s ease;
 }
 
@@ -60,7 +60,7 @@
   width: 100%;
   margin-block: 5px;
   font-size: 0.8em;
-  min-height: 100px;
+  min-height: 50px;
 }
 
 .old-comments {

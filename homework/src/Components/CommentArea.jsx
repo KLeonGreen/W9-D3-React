@@ -7,6 +7,9 @@ class CommentArea extends Component {
     comments: [],
   };
 
+  //f(x) to get "comments" by using bookId end point since we dont want all comments on the server
+  // I got the book ID as a prop from the 'SingleBook.jsx' component
+
   getBooks = async () => {
     const options = {
       headers: {
@@ -27,6 +30,9 @@ class CommentArea extends Component {
     console.log(this.props.bookID);
   };
 
+  // running the getBooks function since we cant do it in render()
+  //componentDidMount works almost like window.onload (in vanilla js), it loads once hence calling the f(x)
+
   componentDidMount() {
     this.getBooks();
   }
@@ -35,9 +41,15 @@ class CommentArea extends Component {
     return (
       <div style={{ color: "black" }}>
         <div className="comment-area" type="text">
-          {this.state.comments.map((comment) => (
-            <CommentList comments={comment} />
-          ))}
+          {this.state.comments.map(
+            (
+              comment //now we have an array of comments from fetch, we map trough it,
+            ) => (
+              // as we map we send each comment object to CommentList.jsx as a prop (line 50)
+              // and send the book Id as a prop in AddComment.jsx component(line 55)
+              <CommentList comments={comment} />
+            )
+          )}
         </div>
         <div>
           <AddComment bookID={this.props.bookID} />

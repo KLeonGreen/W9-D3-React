@@ -23,7 +23,7 @@ class BookList extends Component {
               .filter((book) => book.title.includes(this.state.userInput))
               .map((book) => {
                 return (
-                  <Col xs={12} sm={6} md={4} lg={3} xl={2} key={book.asin}>
+                  <Col xs={12} sm={6} md={4} lg={3} xl={3} key={book.asin}>
                     <SingleBook books={book} />;
                   </Col>
                 );

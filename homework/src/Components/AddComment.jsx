@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Form } from "react-bootstrap";
 
 class AddComment extends Component {
+  //initial state object to keep the data memory that we want to send(data = comments)
   state = {
     users: {
       comment: "",
@@ -9,6 +10,9 @@ class AddComment extends Component {
       elementId: "",
     },
   };
+
+  //Function trigged by the 'Add comment' button.
+  //It sends the comment to the API object(POST method)
 
   sendCommentHandler = async () => {
     const options = {
@@ -32,14 +36,24 @@ class AddComment extends Component {
     }
   };
 
+  //function that make the typing in fields possible,
+  //it connects the state objects  we created above (users) to the inputs fields in the DOM
+  //the 'value' is the e.target.value, (the actual comments from the inputs), and 'name' is the key value from the users object(comment, rate)
+
   onChangeHandler = (value, name) => {
     this.setState({
       users: {
-        ...this.state.users,
+        ...this.state.users, //since we update our state as we type,
+        //we need to keep the other sections of the object unchanged, rate and elementId in this case.
+        //Only [name]:value will be the only one to be overwitten
         [name]: value,
       },
     });
   };
+
+  //this function will update the elementId in the users object,
+  //we have to update it manually since there is no field in the DOM for elemetID
+
   componentDidMount() {
     this.setState({
       users: {
